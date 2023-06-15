@@ -1,35 +1,35 @@
 # Analyseur-lexicale-et-syntaxique-du-langage-SQL
-Analyseur Lexical et Syntaxique du langage SQL avec Flex et Bison
-Ce projet consiste à créer un analyseur lexical et syntaxique du langage SQL en utilisant les outils Flex et Bison. 
-L'objectif est de prendre une entrée SQL et de la découper en jetons lexicaux (mots-clés, identificateurs, opérateurs, etc.) pour ensuite vérifier la syntaxe et la structure grammaticale de la requête SQL.
 
-Configuration requise
-Avant de pouvoir exécuter l'analyseur lexical et syntaxique, assurez-vous d'avoir les outils suivants installés sur votre système :
+This is a SQL query compiler implemented using Flex and Bison.
 
-Flex : un générateur d'analyseur lexical
-Bison : un générateur d'analyseur syntaxique
-Compilation et exécution
-Pour compiler et exécuter l'analyseur lexical et syntaxique, suivez les étapes suivantes :
+## Overview
 
-Clonez le dépôt GitHub sur votre machine locale.
-Ouvrez une fenêtre de terminal et accédez au répertoire du projet.
-Utilisez la commande make pour compiler les fichiers Flex et Bison et générer l'exécutable.
-Une fois la compilation terminée, exécutez l'analyseur en utilisant la commande ./mini.
-Utilisation de l'analyseur
-Une fois l'analyseur exécuté, vous pouvez saisir des requêtes SQL à analyser. 
-L'analyseur découpera la requête en jetons lexicaux et vérifiera la syntaxe et la structure grammaticale de la requête.
+The SQL Query Compiler is designed to analyze and compile SQL queries written in a specific grammar. It utilizes the Flex lexical analyzer and the Bison parser generator to perform lexical and syntax analysis of the input queries.
 
-Voici un exemple d'utilisation :
-SQL:
-$ ./mini
-Veuillez saisir une requête SQL : SELECT * FROM users WHERE age > 18;
-Analyse lexicale terminée.
-Analyse syntaxique terminée.
-La requête est valide.
-$ ./mini
-Veuillez saisir une requête SQL : SELECT * FROM users WHERE age > 18;
-Analyse lexicale terminée.
-Analyse syntaxique terminée.
-La requête est valide.
-Auteur : Mouhib MANI
-Date : 10/04/2023
+## Features
+
+- Lexical analysis: The Flex analyzer tokenizes the input SQL queries, identifying individual tokens such as keywords, identifiers, literals, and symbols.
+- Syntax analysis: The Bison parser generates a parse tree based on the grammar rules defined for the SQL language. It checks the validity of the queries and detects any syntax errors.
+- Query compilation: The compiler processes the valid SQL queries and generates appropriate output, such as an optimized query plan or intermediate code representation.
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following tools installed:
+
+- Flex
+- Bison
+- C/C++ compiler
+
+### Building the Compiler
+
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Run the following commands to build the compiler:
+
+   ```bash
+   flex lexer.l
+   bison -d parser.y
+   gcc lex.yy.c parser.tab.c -o sql_compiler
+
